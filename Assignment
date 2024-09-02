@@ -1,0 +1,11 @@
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+
+df = pd.read_csv('WineQT.csv')
+
+df['quality'] = df['quality'].apply(lambda x: 0 if x <= 6 else 1)
+
+scaler = MinMaxScaler()
+df[df.columns[:-1]] = scaler.fit_transform(df[df.columns[:-1]])
+
+df.to_csv('winequality_transformed.csv', index=False)
