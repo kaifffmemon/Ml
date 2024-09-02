@@ -9,3 +9,4 @@ scaler = MinMaxScaler()
 df[df.columns[:-1]] = scaler.fit_transform(df[df.columns[:-1]])
 
 df.to_csv('winequality_transformed.csv', index=False)
+df
